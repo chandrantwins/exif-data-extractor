@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<configuration>
+
+	<property name="LOG_DIR" value="${EXIF_DATA_EXTRACTOR_LOG_DIR:-./}" />
+
+	<appender name="FileAppender"
+		class="ch.qos.logback.core.rolling.RollingFileAppender">
+		<append>true</append>
+		<file>${LOG_DIR}exif_data_extractor.log</file>
+		<encoder>
+			<pattern>%-2d{yyyy/MM/dd HH:mm:ss.SSS} - %-5p %c %X - %m%n</pattern>
+		</encoder>
+		<rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+			<fileNamePattern>${LOG_DIR}exif_data_extractor.log.%d{yyyy-MM-dd}
+			</fileNamePattern>
+		</rollingPolicy>
+	</appender>
+	<appender name="ConsoleAppender" class="ch.qos.logback.core.ConsoleAppender">
+		<encoder>
+			<pattern>%-2d{yyyy/MM/dd HH:mm:ss.SSS} - %-5p %c %X - %m%n</pattern>
+		</encoder>
+	</appender>
+
+	<root level="DEBUG">
+		<appender-ref ref="ConsoleAppender" />
+		<appender-ref ref="FileAppender" />
+	</root>
+
+</configuration>

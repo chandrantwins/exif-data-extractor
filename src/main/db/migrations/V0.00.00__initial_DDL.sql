@@ -1,0 +1,35 @@
+
+---------------
+-- SEQUENCES
+---------------
+CREATE SEQUENCE seq INCREMENT 1 START 1001000000 CACHE 1;
+
+------------
+-- TABLES
+------------
+
+CREATE TABLE LOG (
+    log_id BIGINT NOT NULL,
+    executed_at TIMESTAMP WITHOUT TIME ZONE
+);
+
+CREATE TABLE FILE (
+    file_id BIGINT NOT NULL,
+    key CHARACTER VARYING(255)
+);
+
+CREATE TABLE EXIF_DATA (
+    exif_data_id BIGINT NOT NULL,
+	file_id BIGINT NOT NULL,
+    name CHARACTER VARYING(80),
+    value CHARACTER VARYING(150)
+);
+
+------------
+-- INDEXES
+------------
+
+ALTER TABLE FILE ADD CONSTRAINT FILE_PK PRIMARY KEY (file_id);
+ALTER TABLE EXIF_DATA ADD CONSTRAINT EXIF_DATA_PK PRIMARY KEY (exif_data_id);
+
+CREATE UNIQUE INDEX FILE_IDX1 ON FILE using BTREE (key);
