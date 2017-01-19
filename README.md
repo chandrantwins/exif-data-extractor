@@ -25,7 +25,7 @@ $ export WALDO_PHOTOS_JDBC_USER="username"
 $ export WALDO_PHOTOS_JDBC_PASSWORD="password"
 ```
 
-Build the project using Maven
+Build the project using [Maven 3.3](https://maven.apache.org/)
 ```sh
 mvn clean install 
 ```
