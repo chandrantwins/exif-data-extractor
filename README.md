@@ -17,27 +17,28 @@ parses the EXIF data from the photos and indexes the EXIF key/value pairs into a
  
 ## How to run:
 
-1. Set up the following environment variables: 
-	```sh
-	WALDO_PHOTOS_JDBC_URL="jdbc:postgresql://server/database"
-	WALDO_PHOTOS_JDBC_USER="username"
-	WALDO_PHOTOS_JDBC_PASSWORD="password"
-	```
+This solution requires a number of environment variables for runtime configuration. 
 
-2. Build the project
-	```sh
-	mvn clean install 
-	```
+```sh
+$ export WALDO_PHOTOS_JDBC_URL="jdbc:postgresql://server/database"
+$ export WALDO_PHOTOS_JDBC_USER="username"
+$ export WALDO_PHOTOS_JDBC_PASSWORD="password"
+```
 
-3. Create the database schema:
-	```sh
-	mvn flyway:migrate 
-	```
+Build the project using Maven
+```sh
+mvn clean install 
+```
 
-4. To run the project
-	```sh
-	mvn exec:java
-	```
+Create the database schema:
+```sh
+mvn flyway:migrate 
+```
+
+Finally run the project:
+```sh
+mvn exec:java
+```
 
 ## Future Improvements:
 
